@@ -11,18 +11,14 @@ let missed = 0;
 let gameOver = document.querySelector(".gameOver");
 let hint = document.querySelector(".hint");
 const phrases = {
-                'color':
-                ["blue","green","red","orange","yellow","magenta","aquamarine",
-                "brown","purple","violet","black","white","grey","pink"],
-                'number':
-                ["one","two","three","four","five","six","seven",
-                "eight","nine","ten"],
-                'social media':
-                ["instagram","facebook","twitter","tumblr","snapchat","youtube",
-                "whatsapp","skype","pinterest","linkedin"],
-                'month':
-                ["january","february","march","april","may","june","july",
-                "august","september","october","november","december"]
+                'Linkin Park':
+                ["numb","in the end","new divide","castle of glass","bleed it out"],
+                'Michael Jackson':
+                ["beat it","billie jean","man in the mirror","thriller","bad","black or white"],
+                'Demi Lovato':
+                ["heart attack","this is me","tell me you love me","sorry not sorry","skyscraper"],
+                'P!nk':
+                ["try","what about us","just give me a reason","so what","raise your glass","true love"]
               };
 
 //function to choose the category/hint.
