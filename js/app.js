@@ -2,30 +2,37 @@
 const overlay = document.querySelector("#overlay");
 let status = document.querySelector(".start");
 let title = document.querySelector(".title");
+let hint = document.querySelector(".hint");
+const answer = document.querySelector(".answer");
 let reset = document.querySelector(".btn__reset");
+let key = 0;
 const phrase = document.querySelector("#phrase");
+let guess = 0;
 const qwerty = document.querySelector("#qwerty");
 const ul = document.querySelector("ul");
 let tries = document.querySelectorAll(".tries img");
 let missed = 0;
 let gameOver = document.querySelector(".gameOver");
-let hint = document.querySelector(".hint");
 const phrases = {
-                'Linkin Park':
-                ["numb","in the end","new divide","castle of glass","bleed it out"],
-                'Michael Jackson':
-                ["beat it","billie jean","man in the mirror","thriller","bad","black or white"],
-                'Demi Lovato':
-                ["heart attack","this is me","tell me you love me","sorry not sorry","skyscraper"],
-                'P!nk':
-                ["try","what about us","just give me a reason","so what","raise your glass","true love"]
-              };
+                  'Linkin Park':
+                  ["numb","in the end","new divide","castle of glass","bleed it out"],
+                  'Michael Jackson':
+                  ["beat it","billie jean","man in the mirror","thriller","bad","black or white"],
+                  'Demi Lovato':
+                  ["heart attack","this is me","tell me you love me","sorry not sorry","skyscraper"],
+                  'P!nk':
+                  ["try","what about us","just give me a reason","so what","raise your glass","true love"],
+                  'Simple Plan':
+                  ["welcome to my life","save you","astronaut","crazy","freaking me out"],
+                  'Nickelback':
+                  ["photograph","lullaby","if everyone cared","trying not to love you","rockstar"]
+                };
 
 //function to choose the category/hint.
 function randomHint(obj) {
     const random = Math.floor(Math.random()*Object.keys(obj).length);
     const idx = random;
-    const key = Object.keys(phrases)[idx];
+    key = Object.keys(phrases)[idx];
     const value = phrases[key];
     hint.textContent = "Hint: " + key;
     return value;
@@ -105,8 +112,11 @@ function checkWin(e) {
     qwerty.removeEventListener('click',run);
     //delay respond time for win/lose overlay
     setTimeout(function(){
-      //display win/lose overlay and reset button
+      //display win/lose overlay.
       overlay.style.display = "flex";
+      //display answer.
+      answer.textContent = "answer: " + guess.join('') + " by " + key;
+      //display reset button.
       reset.textContent = "Reset";
       //if phrase is completed/win.
       if(show.length == letter.length) {
@@ -151,7 +161,7 @@ reset.addEventListener('click', ()=> {
   //code for starting the game.
   if(reset.textContent == "Start Game"){
     // call the getRandomPhraseArray function
-    let guess = getRandomPhraseArray(randomHint);
+    guess = getRandomPhraseArray(randomHint);
     // pass it to addPhraseToDisplay function.
     addPhraseToDisplay(guess);
     //set overplay display to none to display the game
