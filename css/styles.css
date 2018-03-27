@@ -13,6 +13,7 @@
   --color-keys-light: #F0D0A8;
   --font-size-large: 60px;
   --font-size-medium: 20px;
+  --font-size-letter: 30px;
   --transition: all .2s ease-in-out;
 }
 
@@ -63,7 +64,8 @@ button {
 }
 
 button:hover:not([disabled]) {
-  background-color: transparent;
+  opacity: 0.7;
+  transform: translateY(2px);
 }
 
 .main-container {
@@ -92,13 +94,19 @@ button:hover:not([disabled]) {
   color: var(--color-keys);
 }
 
+/* Answer */
+
+.answer {
+  margin: 5px;
+}
+
 /* Phrase */
 
 .letter {
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-letter);
   height: 65px;
   width: 65px;
-  padding: 20px 1px 0 1px;
+  padding:13px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
   background: var(--color-neutral-light);
@@ -107,7 +115,7 @@ button:hover:not([disabled]) {
 }
 
 .space {
-  width: 15px;
+  width: 25px;
 }
 
 .show {
@@ -170,6 +178,7 @@ button:hover:not([disabled]) {
   position: fixed;
   color: #FFFFFF;
   justify-content: center;
+  height:100%;
   top: 0;
   bottom: 0;
   left: 0;
